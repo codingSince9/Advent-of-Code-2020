@@ -1,11 +1,8 @@
 entries = []
 
-while True:
-    entry = input()
-    if entry:
+with open("day01/day01.txt", "r") as f:
+    for entry in f:
         entries.append(int(entry))
-    else:
-        break
 
 foundSumOf2 = False
 foundSumOf3 = False
