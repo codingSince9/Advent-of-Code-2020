@@ -1,6 +1,7 @@
+import string
+
 passports = []
 requiredFields = ['ecl', 'pid', 'eyr', 'hcl', 'byr', 'iyr', 'hgt']
-validHairColor = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
 eyeColor = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
 
 samePassport = ""
@@ -91,7 +92,7 @@ for passport in passports:
                     first = False
                     continue
                 else:
-                    if char not in validHairColor:
+                    if char not in string.hexdigits:
                         invalid = True
                         break
             if invalid:
