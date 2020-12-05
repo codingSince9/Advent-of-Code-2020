@@ -16,11 +16,11 @@ for boardingPass in boardingPasses:
         if char == 'B':
             lowerRowBoundary = math.ceil((lowerRowBoundary + upperRowBoundary)/2)
         elif char == 'F':
-            upperRowBoundary = int((lowerRowBoundary + upperRowBoundary)/2)
+            upperRowBoundary = math.floor((lowerRowBoundary + upperRowBoundary)/2)
         elif char == 'R':
             lowerColumnBoundary = math.ceil((lowerColumnBoundary + upperColumnBoundary)/2)
         else:
-            upperColumnBoundary = int((lowerColumnBoundary + upperColumnBoundary)/2)
+            upperColumnBoundary = math.floor((lowerColumnBoundary + upperColumnBoundary)/2)
 
     seatID = upperRowBoundary * 8 + upperColumnBoundary
     seats.append(seatID)
