@@ -1,11 +1,11 @@
 import copy
 
-instructions = {}
+startInstructions = {}
 num = 0
 
 for instruction in open("day08.txt"):
     num += 1
-    instructions[num] = instruction.strip()
+    startInstructions[num] = instruction.strip()
 
 
 def accumulate(instructionsToCheck):
@@ -31,23 +31,23 @@ def accumulate(instructionsToCheck):
     return True, accumulator
 
 
-print("Part 1:", accumulate(instructions)[1])
+print("Part 1:", accumulate(startInstructions)[1])
 
 nextInstruction = 1
 while True:
-    startInstructions = copy.deepcopy(instructions)
+    instructions = copy.deepcopy(startInstructions)
 
-    instruction = startInstructions[nextInstruction].split()[0]
-    number = startInstructions[nextInstruction].split()[1]
+    instruction = instructions[nextInstruction].split()[0]
+    number = instructions[nextInstruction].split()[1]
 
     if instruction == 'nop' or instruction == 'jmp':
         changeInstruction = 'nop' if instruction == 'jmp' else 'jmp'
         newInstruction = changeInstruction + ' ' + number
-        startInstructions[nextInstruction] = newInstruction
+        instructions[nextInstruction] = newInstruction
 
     nextInstruction += 1
 
-    success, result = accumulate(startInstructions)
+    success, result = accumulate(instructions)
     if success:
         print("Part 2:", result)
         break
